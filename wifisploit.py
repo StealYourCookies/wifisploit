@@ -41,7 +41,7 @@ def startframe():
 			if mvi == "beaconflood":
 				annoyance_time = float(prompt.split(" ")[1])
 				time_setter = time.time() + annoyance_time
-				print ("[+] Sending beacon frames...")
+				print ("Sending beacon frames...")
 				def task():
 					try:
 						while time.time() < time_setter:
