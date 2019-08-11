@@ -2,6 +2,7 @@ from scapy.all import *
 from time import sleep as rest
 from time import time
 import threading
+import os
 import frame
 from random import _urandom as byte_object
 from subprocess import call as syscall
@@ -14,6 +15,9 @@ IEEE802AP = "FF:FF:FF:FF:FF:FF"
 interface = "none"
 deauthencation_frame = RadioTap()/Dot11(addr1=client, addr2=IEEE802AP, addr3=IEEE802AP)/Dot11Deauth()
 
+if not os.geteuid() == 0:
+	print ("! this script mus be ran as root smh")
+	exit()
 syscall("clear", shell=True)
 print (frame.banner)
 def startframe():
